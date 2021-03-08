@@ -1,0 +1,33 @@
+version: "3.8"
+
+
+volumes:
+    mysql_data:
+        driver: local
+
+services:
+    mysql:
+        image: mysql
+        volumes:
+        - mysql_data:/var/lib/mysql
+        environment:
+        - MYSQL_ROOT_PASSWORD=task_crud
+        - MYSQL_DATABASE=task_crud
+        - MYSQL_USER=task
+        - MYSQL_PASSWORD=task
+        ports:
+        - "3306:3306"
+        volumes:
+        - mysql_data:/var/lib/mysql
+    tasks-service:
+        build: tasks-service
+        ports:
+        - "8200:8200"
+        depends_on:
+        - mysql
+        environment: 
+        - SPRING_DATASOURCE_USERNAME=task
+        - SPRING_DATASOURCE_PASSWORD=task        
+        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/task_crud?serverTimezone=Europe/Warsaw&useSSL=False&allowPublicKeyRetrieval=true        
+        
+   
