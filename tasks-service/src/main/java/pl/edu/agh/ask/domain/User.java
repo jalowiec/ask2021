@@ -9,10 +9,10 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String email, int keyClockId) {
+    public User(Long id, String email, int keyCloakId) {
         this.id = id;
         this.email = email;
-        this.keyClockId = keyClockId;
+        this.keyCloakId = keyCloakId;
     }
 
     @Id
@@ -23,7 +23,7 @@ public class User {
     private String email;
 
     @Column
-    private int keyClockId;
+    private int keyCloakId;
 
     public Long getId() {
         return id;
@@ -33,7 +33,7 @@ public class User {
         return email;
     }
 
-    public int getKeyClockId() {
-        return keyClockId;
+    public int getKeyCloakId() {
+        return keyCloakId;
     }
 }

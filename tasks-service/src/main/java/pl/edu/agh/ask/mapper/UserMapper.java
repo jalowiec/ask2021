@@ -2,8 +2,6 @@ package pl.edu.agh.ask.mapper;
 
 
 import org.springframework.stereotype.Component;
-import pl.edu.agh.ask.domain.Task;
-import pl.edu.agh.ask.domain.TaskDto;
 import pl.edu.agh.ask.domain.User;
 import pl.edu.agh.ask.domain.UserDto;
 
@@ -17,21 +15,21 @@ public class UserMapper {
         return new User(
              userDto.getId(),
              userDto.getEmail(),
-             userDto.getKeyClockId()
+             userDto.getKeyCloakId()
         );
     }
 
-    public UserDto mapToTaskDto(final User user){
+    public UserDto mapToUserDto(final User user){
         return new UserDto(
             user.getId(),
             user.getEmail(),
-            user.getKeyClockId()
+            user.getKeyCloakId()
         );
     }
 
     public List<UserDto> mapToUserDtoList(final List<User> userList){
         return userList.stream()
-                .map(n->new UserDto(n.getId(), n.getEmail(), n.getKeyClockId()))
+                .map(n->new UserDto(n.getId(), n.getEmail(), n.getKeyCloakId()))
                 .collect(Collectors.toList());
     }
 

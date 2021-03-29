@@ -5,15 +5,15 @@ import java.util.Objects;
 public class UserDto {
     private Long id;
     private String email;
-    private int keyClockId;
+    private int keyCloakId;
 
     public UserDto() {
     }
 
-    public UserDto(Long id, String email,  int keyClockId) {
+    public UserDto(Long id, String email,  int keyCloakId) {
         this.id = id;
         this.email = email;
-        this.keyClockId = keyClockId;
+        this.keyCloakId = keyCloakId;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class UserDto {
 
         UserDto userDto = (UserDto) o;
 
-        if (keyClockId != userDto.keyClockId) return false;
+        if (keyCloakId != userDto.keyCloakId) return false;
         if (!Objects.equals(id, userDto.id)) return false;
         return Objects.equals(email, userDto.email);
     }
@@ -32,7 +32,7 @@ public class UserDto {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + keyClockId;
+        result = 31 * result + keyCloakId;
         return result;
     }
 
@@ -52,11 +52,11 @@ public class UserDto {
         this.email = email;
     }
 
-    public int getKeyClockId() {
-        return keyClockId;
+    public int getKeyCloakId() {
+        return keyCloakId;
     }
 
-    public void setKeyClockId(int keyClockId) {
-        this.keyClockId = keyClockId;
+    public void setKeyCloakId(int keyCloakId) {
+        this.keyCloakId = keyCloakId;
     }
 }

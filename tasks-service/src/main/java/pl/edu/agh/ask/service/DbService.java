@@ -16,6 +16,8 @@ public class DbService {
 
     @Autowired
     private TaskRepository taskRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     public List<Task> getAllTasks(){
@@ -37,12 +39,17 @@ public class DbService {
     public void deleteTask(final Long id){
         taskRepository.deleteById(id);}
 
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
     public User saveUser(final User user){
         return  userRepository.save(user);
     }
 
     public List<User> getUserByKeyClockId(final int keyClockId){
-        return userRepository.findUserByKeyClockId(keyClockId);
+        return userRepository.findUserByKeyCloakId(keyClockId);
     }
 
     public Optional<User> getUserById(final Long id){

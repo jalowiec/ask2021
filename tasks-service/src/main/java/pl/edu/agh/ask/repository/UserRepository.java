@@ -9,8 +9,10 @@ import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 
+    @Override
+    List<User> findAll();
 
-    List<User> findUserByKeyClockId(int keyClockId);
+    List<User> findUserByKeyCloakId(int keyClockId);
 
     @Override
     User save(User user);
