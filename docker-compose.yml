@@ -19,15 +19,31 @@ services:
         - "3306:3306"
         volumes:
         - mysql_data:/var/lib/mysql
-    tasks-service:
-        build: tasks-service
+    keycloak:
+        image: jboss/keycloak
+        command: 
+            -Djboss.socket.binding.port-offset=100
+        environment:
+            DB_VENDOR: MYSQL
+            DB_ADDR: mysql
+            DB_DATABASE: task_crud
+            DB_USER: task
+            DB_PASSWORD: task
+            KEYCLOAK_USER: admin
+            KEYCLOAK_PASSWORD: admin
         ports:
-        - "8200:8200"
+        - "8180:8180"
         depends_on:
-        - mysql
-        environment: 
-        - SPRING_DATASOURCE_USERNAME=task
-        - SPRING_DATASOURCE_PASSWORD=task        
-        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/task_crud?serverTimezone=Europe/Warsaw&useSSL=False&allowPublicKeyRetrieval=true        
+        - mysql        
+#    tasks-service:
+#        build: tasks-service
+#        ports:
+#        - "8200:8200"
+#        depends_on:
+#        - mysql
+#        environment: 
+#        - SPRING_DATASOURCE_USERNAME=task
+#        - SPRING_DATASOURCE_PASSWORD=task        
+#        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/task_crud?serverTimezone=Europe/Warsaw&useSSL=False&allowPublicKeyRetrieval=true        
         
    

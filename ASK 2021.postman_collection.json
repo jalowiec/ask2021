@@ -6,6 +6,111 @@
 	},
 	"item": [
 		{
+			"name": "AUTH CODE GRANT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8180/auth/realms/ask/protocol/openid-connect/auth?client_id=tasks-service&response_type=code&scope=openid profile&redirect_uri=http://localhost:8080/callback&state=asfwerwsdfwe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"auth",
+						"realms",
+						"ask",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "tasks-service"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "scope",
+							"value": "openid profile"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/callback"
+						},
+						{
+							"key": "state",
+							"value": "asfwerwsdfwe"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AUTH CODE GRANT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "tasks-service",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "aa031012-63e9-4f47-a587-d847b94fe416",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "f2b6a71b-4d5c-4c02-9c5a-d012865d6bbf.e84a6fff-19d7-4ccf-8ae3-dfbd99878627.8d2e3c24-1fc0-4eec-9463-1543f759e8b9",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8080/callback",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "profile",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8180/auth/realms/ask/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8180",
+					"path": [
+						"auth",
+						"realms",
+						"ask",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "TASKS-SERVICE",
 			"request": {
 				"method": "GET",
@@ -69,6 +174,82 @@
 					"port": "8200",
 					"path": [
 						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER-SERVICE",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJORDhWZkwtb2luTjN1RmRIYXlhbjlGWG1wVTk2WTgwZDdQSmthUzJYUDc4In0.eyJleHAiOjE2MTM2MjEyODEsImlhdCI6MTYxMzU4NTMwNSwiYXV0aF90aW1lIjoxNjEzNTg1MjgxLCJqdGkiOiIxMmMzZDQwNy0yZGE5LTQ2MGItYWU5Ni01Y2RlMTkyNzFhM2IiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvdGFpIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjUzNmIyODhjLTc0ODgtNDE0YS1iZTI3LWZjMDI2Y2UzZDk5MyIsInR5cCI6IkJlYXJlciIsImF6cCI6InRhaSIsInNlc3Npb25fc3RhdGUiOiI3ZjEzYmVhZS0yZDI1LTRhMDMtYjBlNi0wYzAxYWMzMTJiMmMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0YWkxIn0.EupbVhbChsI-5NsCYW1lbbbKs9aXpcJ5nFhULpruTp_Dr_oG75CGe1WEGVbhwu9d-txvVHSGMYkrG12TeaaySjFFrbWWz3tNHtKXb2kcPTtJkF6zvENvGvCvEiXC_RXWu63ei5Np0Vlaa75662w-bUnlIfqiqCaDODDr1nxDDloG4nHcYejzJFIp_Tm4PfWCWlPrnpnaXLsk96mwhpPNs_M30IkQRhn_klNhjglliINWovvO8f8Ebyg9Ixal5ZJHE_pKWAj5riAbEyN5TQZu8ywiMFWFLVw5k1p1KNlvKZD9bG31cLnAGUkYHLqIlD9Ak1pASFDaLGgVKxqQwyh6RQ",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:8200/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "USER-SERVICE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJORDhWZkwtb2luTjN1RmRIYXlhbjlGWG1wVTk2WTgwZDdQSmthUzJYUDc4In0.eyJleHAiOjE2MTM1NDQxNDMsImlhdCI6MTYxMzUwODE2NiwiYXV0aF90aW1lIjoxNjEzNTA4MTQzLCJqdGkiOiJjMjAyMmQwZi0wNTg2LTQ1N2UtODkwMC0xMWJmMjhkZTE2MTEiLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvdGFpIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjUzNmIyODhjLTc0ODgtNDE0YS1iZTI3LWZjMDI2Y2UzZDk5MyIsInR5cCI6IkJlYXJlciIsImF6cCI6InRhaSIsInNlc3Npb25fc3RhdGUiOiIzNjI0ZDNkOS0xODM2LTQxNzktYmNmMC00NGQzOTU3NzJiNTkiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0YWkxIn0.B18nMvVR4TVQOjYnR5BNIo-aifRU6k3zmFVOWg16FzdbMrab3FKnjPO4dD279HioTIPpKICM9Nq_jf3eykkX5dNiJ4G7iQnzMvMHUu9isLBnnG6cVeo_v0uF4qwku7ghlz7jwCR2nV-rL4-M_HXip5wHqJ5teZNWd8IgQfWWJfCB2bkFi7wlRYq07gFL7UFBv0uTkBFYbHf35kq0oA-w8SM7DnsIJicGMHKtCumX6AqgG5h-P6Idw74tSr5HEpGxCnOvALPJmMJJH_527GtLz4kjSz_LH2kKxmU50I3xlR5UWE95U45cRimj9HU6TUbhnbUe0h-Sg_bf4HvrjZzccQ",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\"email\":\"test@fsadfas.com.pl\",\n\"keyCloakId\": 5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8200/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8200",
+					"path": [
+						"users"
 					]
 				}
 			},
