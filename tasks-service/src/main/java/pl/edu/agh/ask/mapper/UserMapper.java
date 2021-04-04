@@ -15,7 +15,7 @@ public class UserMapper {
         return new User(
              userDto.getId(),
              userDto.getEmail(),
-             userDto.getKeyCloakId()
+             userDto.getKeyCloakUserName()
         );
     }
 
@@ -23,13 +23,13 @@ public class UserMapper {
         return new UserDto(
             user.getId(),
             user.getEmail(),
-            user.getKeyCloakId()
+            user.getKeyCloakUserName()
         );
     }
 
     public List<UserDto> mapToUserDtoList(final List<User> userList){
         return userList.stream()
-                .map(n->new UserDto(n.getId(), n.getEmail(), n.getKeyCloakId()))
+                .map(n->new UserDto(n.getId(), n.getEmail(), n.getKeyCloakUserName()))
                 .collect(Collectors.toList());
     }
 

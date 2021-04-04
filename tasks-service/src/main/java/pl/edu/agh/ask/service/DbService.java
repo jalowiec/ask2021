@@ -48,8 +48,8 @@ public class DbService {
         return  userRepository.save(user);
     }
 
-    public List<User> getUserByKeyClockId(final int keyClockId){
-        return userRepository.findUserByKeyCloakId(keyClockId);
+    public List<User> getUserByKeyClocUserName(final String keyCloakUserName){
+        return userRepository.findUserByKeyCloakUserName(keyCloakUserName);
     }
 
     public Optional<User> getUserById(final Long id){

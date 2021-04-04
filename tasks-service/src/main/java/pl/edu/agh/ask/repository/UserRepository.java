@@ -12,7 +12,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Override
     List<User> findAll();
 
-    List<User> findUserByKeyCloakId(int keyClockId);
+    List<User> findUserByKeyCloakUserName(String keyCloakUserName);
 
     @Override
     User save(User user);
