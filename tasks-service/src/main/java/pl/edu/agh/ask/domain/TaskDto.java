@@ -4,12 +4,12 @@ public class TaskDto {
     private Long id;
     private String title;
     private String content;
-    private int userId;
+    private long userId;
 
     public TaskDto() {
     }
 
-    public TaskDto(Long id, String title, String content, int userId) {
+    public TaskDto(Long id, String title, String content, long userId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -54,11 +54,11 @@ public class TaskDto {
     }
 
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 }

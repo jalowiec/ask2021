@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/users", produces= MediaType.APPLICATION_JSON_VALUE)
-    public List<UserDto> getUser(@AuthenticationPrincipal Jwt jwt){
+    public List<UserDto> getUser(@AuthenticationPrincipal Jwt jwt) throws UserNotFoundException {
         String keyCloakUserName = jwt.getClaims().get("preferred_username").toString();
         return userMapper.mapToUserDtoList(service.getUserByKeyClocUserName(keyCloakUserName));
     }

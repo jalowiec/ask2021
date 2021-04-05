@@ -9,7 +9,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(Long id, String title, String content, int userId) {
+    public Task(Long id, String title, String content, long userId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -27,7 +27,7 @@ public class Task {
     private String content;
 
     @Column(name = "userId")
-    private int userId;
+    private long userId;
 
     public Long getId() {
         return id;
@@ -41,7 +41,7 @@ public class Task {
         return content;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 }

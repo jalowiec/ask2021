@@ -3,6 +3,7 @@ package pl.edu.agh.ask.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pl.edu.agh.ask.controller.UserNotFoundException;
 import pl.edu.agh.ask.domain.Task;
 import pl.edu.agh.ask.domain.User;
 import pl.edu.agh.ask.repository.TaskRepository;
@@ -24,7 +25,7 @@ public class DbService {
         return taskRepository.findAll();
     }
 
-    public List<Task> getTasksByUserId(final int userId){
+    public List<Task> getTasksByUserId(final long userId){
         return taskRepository.findTasksByUserId(userId);
     }
 
@@ -56,6 +57,13 @@ public class DbService {
         return userRepository.findById(id);
     }
 
+    public long getUserIdByKeyCloakUserName(String keyCloakUserName) throws UserNotFoundException {
+        List<User>  users = getUserByKeyClocUserName(keyCloakUserName);
+        if(users.size() > 0){
+            return users.get(0).getId();
+        }
+        else throw new UserNotFoundException();
+    }
 
 
 }
