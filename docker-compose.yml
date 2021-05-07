@@ -36,7 +36,7 @@ services:
         depends_on:
         - mysql        
     tasks-service:
-        build: tasks-service
+        build: .
         ports:
         - "8200:8200"
         depends_on:
@@ -46,16 +46,5 @@ services:
         - SPRING_DATASOURCE_USERNAME=task
         - SPRING_DATASOURCE_PASSWORD=task        
         - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/task_crud?serverTimezone=Europe/Warsaw&useSSL=False&allowPublicKeyRetrieval=true        
-        - spring.security.oauth2.resourceserver.jwt.jwk-set-uri=http://keycloak:8180/auth/realms/ask/protocol/openid-connect/certs                
-#    tasks-service:
-#        build: tasks-service
-#        ports:
-#        - "8200:8200"
-#        depends_on:
-#        - mysql
-#        environment: 
-#        - SPRING_DATASOURCE_USERNAME=task
-#        - SPRING_DATASOURCE_PASSWORD=task        
-#        - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/task_crud?serverTimezone=Europe/Warsaw&useSSL=False&allowPublicKeyRetrieval=true        
         
    
