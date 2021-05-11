@@ -4,27 +4,56 @@
 </head>
 <body>
 <div id="container">
-    <div><a style="float: right" href="/logout">Logout</a></div>
-    <h1>
-        Manage tasks for user:  <span th:text="${username}">--name--</span>
-    </h1>
+    <div class="jumbotron text-center">
+        <h1>
+            Manage tasks for user: <span th:text="${username}"/>
+        </h1>
+    </div>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
             <th>Title</th>
             <th>Content</th>
+            <th/>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="task : ${tasks}">
-            <td th:text="${task.id}">Text ...</td>
-            <td th:text="${task.title}">Text ...</td>
-            <td th:text="${task.content}">Text ...</td>
+        <tr th:each="task : ${tasks}"  th:styleappend="${task.done} ? 'opacity: 50%' : ''">
+            <td th:text="${task.id}"/>
+            <td th:text="${task.title}"/>
+            <td th:text="${task.content}"/>
+            <td>
+                <span th:unless="${task.done}">
+                    <a th:href="@{/tasks/resolve/__${task.id}__}" class="btn btn-success">Done</a>
+                </span>
+                <a th:href="@{/tasks/delete/__${task.id}__}" class="btn"
+                   th:classappend="${task.done} ? 'btn-warning' : 'btn-danger'">Delete</a>
+            </td>
         </tr>
         </tbody>
     </table>
+    <hr>
+    <div>
+        <h3>Add task</h3>
+        <form th:action="@{/tasks}" method="post" enctype="multipart/form-data">
+            <table>
+                <tbody>
+                <tr>
+                    <td>Title:</td>
+                    <td><input name="title"></td>
+                </tr>
+                <tr>
+                    <td>Content:</td>
+                    <td><input name="content"></td>
+                </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="Create" name="button" style="margin-top: 10px;" class="btn btn-primary"/>
+        </form>
     </div>
+    <hr>
+    <div><a href="/logout" style="float: right" class="btn btn-info">Logout</a></div>
 </div>
 </body>
 </html>
