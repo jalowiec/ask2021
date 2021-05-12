@@ -138,6 +138,20 @@ Wybierz `Assign`->`Assign to People`.
 
 Kliknij `Assign` przy użytkowniku i zapisz wciskając `Save and Go Back`.
 
+### 3.3 Multifactor Authentication
+
+W ustawieniach aplikacji przejdź do zakładki `Sign On`.
+
+W sekcji `Sign On Policy` wciśnij `Add Rule`.
+
+Nazwij regułę w polu `Rule Name`.
+
+W sekcji `Actions` zaznacz `Prompt for factor` -> `Every sing on`.
+
+Zapisz zmiany.
+
+W panelu administracyjnym Okta możesz przejść do `Security` -> `Multifactor`, aby skonfigurować dodatkowe sposoby uwierzytelniania (poza domyślną aplikacją `Okta Verify`).
+
 ## 4. Używanie aplikacji
 
 ### 4.0 Uruchomienie
