@@ -75,7 +75,7 @@ W tabeli zaznacz `Requirement` na `ALTERNATIVE`.
 
 W panelu administracyjnym Keycloak wybierz w menu `Identity Providers` i w selektorze wybierz `OpenID Connect v1.0`.
 
-Zmień alias na `okta-oidc` i wpisz `Display Name` : `Okta OpenID`.
+Zmień alias na `okta-oidc` i wpisz `Display Name` : `Okta Single Sing-On`.
 
 W polu `First Login Flow` wybierz utworzony `Task Manager Flow`.
 
@@ -168,7 +168,7 @@ http://localhost:8200
 
 i naciśnij przycisk `Check tasks`.
 
-Możesz zalogować się jako użytkownik utworzony w Keycloak podając nazwę użytkownika, hasło i używając przycisku `Sign In` lub zalogować się jako użytkownik utworzony w panelu Okta używając przycisku `Okta OpenID`.
+Możesz zalogować się jako użytkownik utworzony w Keycloak podając nazwę użytkownika, hasło i używając przycisku `Sign In` lub zalogować się jako użytkownik utworzony w panelu Okta używając przycisku `Okta Single Sing-On`.
 
 ### 4.2 Dodawanie zadań
 
