@@ -185,3 +185,8 @@ Zadania w tabeli można usuwać przyciskiem `Delete`.
 ### 4.5 Wylogowanie
 
 Do wylogowania służy przycisk `Logout`.
+
+## 5. Links:
+* https://codeburst.io/securing-spring-boot-rest-services-using-keycloak-without-writing-code-7c47ab72fb9d
+* https://www.baeldung.com/spring-boot-keycloak
+* https://ultimatesecurity.pro/post/okta-oidc/
